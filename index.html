@@ -16,9 +16,7 @@
     --text: #EAEFF5;
     --muted: #7C8AA0;
     --up: #35C97C;
-    --up-dim: #17301F;
     --down: #FF5C5C;
-    --down-dim: #331419;
     --amber: #E8A33D;
   }
 
@@ -32,12 +30,10 @@
     min-height: 100vh;
   }
 
-  .mono {
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  }
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
 
   .wrap {
-    max-width: 880px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 48px 24px 80px;
   }
@@ -53,156 +49,95 @@
     margin-bottom: 28px;
   }
 
-  h1 {
-    font-size: 28px;
-    font-weight: 600;
-    margin: 0 0 6px;
-    letter-spacing: -0.01em;
-  }
-
-  .subtitle {
-    color: var(--muted);
-    font-size: 14px;
-    margin: 0;
-  }
+  h1 { font-size: 28px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .subtitle { color: var(--muted); font-size: 14px; margin: 0; }
 
   .live {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--muted);
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--muted);
   }
 
   .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    width: 8px; height: 8px; border-radius: 50%;
     background: var(--up);
-    box-shadow: 0 0 0 0 rgba(53, 201, 124, 0.6);
     animation: pulse 2.4s ease-out infinite;
   }
-
   @keyframes pulse {
     0%   { box-shadow: 0 0 0 0 rgba(53, 201, 124, 0.55); }
     70%  { box-shadow: 0 0 0 8px rgba(53, 201, 124, 0); }
     100% { box-shadow: 0 0 0 0 rgba(53, 201, 124, 0); }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    .dot { animation: none; }
-  }
+  @media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
 
   .summary {
-    display: flex;
-    gap: 28px;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
+    display: flex; gap: 28px; margin-bottom: 40px; flex-wrap: wrap;
   }
-
-  .stat {
-    min-width: 120px;
-  }
-
-  .stat .num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 1;
-  }
-
-  .stat .label {
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 6px;
-  }
-
+  .stat { min-width: 110px; }
+  .stat .num { font-family: 'IBM Plex Mono', monospace; font-size: 30px; font-weight: 600; line-height: 1; }
+  .stat .label { color: var(--muted); font-size: 13px; margin-top: 6px; }
   .stat.up .num { color: var(--up); }
   .stat.down .num { color: var(--down); }
 
-  .rows {
-    border-top: 1px solid var(--line);
+  .group { margin-bottom: 36px; }
+
+  .group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--line);
   }
+
+  .group-name {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .group-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .group-count.has-down { color: var(--down); }
 
   .row {
     display: grid;
     grid-template-columns: 4px 1fr auto auto;
     align-items: center;
-    gap: 18px;
-    padding: 16px 4px;
+    gap: 16px;
+    padding: 11px 4px;
     border-bottom: 1px solid var(--line);
   }
 
-  .bar {
-    align-self: stretch;
-    border-radius: 2px;
-    background: var(--up);
-  }
+  .bar { align-self: stretch; border-radius: 2px; background: var(--up); }
   .row.down .bar { background: var(--down); }
   .row.unknown .bar { background: var(--amber); }
 
-  .name {
-    font-weight: 600;
-    font-size: 15px;
-  }
+  .name { font-weight: 600; font-size: 14px; }
+  .url { display: block; color: var(--muted); font-size: 11.5px; margin-top: 2px; word-break: break-all; }
 
-  .url {
-    display: block;
-    color: var(--muted);
-    font-size: 12.5px;
-    margin-top: 3px;
-    word-break: break-all;
-  }
-
-  .status {
-    text-align: right;
-    font-size: 13px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
+  .status { text-align: right; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
   .row.up .status { color: var(--up); }
   .row.down .status { color: var(--down); }
   .row.unknown .status { color: var(--amber); }
 
-  .meta {
-    text-align: right;
-    color: var(--muted);
-    font-size: 12px;
-    white-space: nowrap;
-    min-width: 130px;
-  }
+  .meta { text-align: right; color: var(--muted); font-size: 11.5px; white-space: nowrap; min-width: 120px; }
 
   footer {
-    margin-top: 32px;
-    color: var(--muted);
-    font-size: 12.5px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
+    margin-top: 32px; color: var(--muted); font-size: 12.5px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
 
   button {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    color: var(--text);
-    font-family: inherit;
-    font-size: 12.5px;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
+    background: var(--panel); border: 1px solid var(--line); color: var(--text);
+    font-family: inherit; font-size: 12.5px; padding: 6px 12px; border-radius: 4px; cursor: pointer;
   }
   button:hover { border-color: var(--muted); }
-  button:focus-visible, a:focus-visible {
-    outline: 2px solid var(--amber);
-    outline-offset: 2px;
-  }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
-  .empty {
-    color: var(--muted);
-    padding: 40px 4px;
-    font-size: 14px;
-  }
+  .empty { color: var(--muted); padding: 40px 4px; font-size: 14px; }
 
   @media (max-width: 600px) {
     .row { grid-template-columns: 4px 1fr; }
@@ -215,7 +150,7 @@
   <header>
     <div>
       <h1>Front Desk Status</h1>
-      <p class="subtitle">Branch login-page availability, refreshed automatically</p>
+      <p class="subtitle">Branch login-page availability by property, refreshed automatically</p>
     </div>
     <div class="live"><span class="dot"></span><span id="lastUpdated">loading…</span></div>
   </header>
@@ -226,7 +161,7 @@
     <div class="stat"><div class="num mono" id="totalCount">–</div><div class="label">branches monitored</div></div>
   </div>
 
-  <div class="rows" id="rows">
+  <div id="groups">
     <div class="empty">Loading branch status…</div>
   </div>
 
@@ -238,11 +173,10 @@
 
 <script>
   // ---- Configure this ----
-  // Point this at your repo's raw state.json. Replace USER/REPO/BRANCH.
   const STATE_URL = "https://raw.githubusercontent.com/goli-devops/hlx-monitoring/main/state.json";
   const REFRESH_MS = 45000;
 
-  const rowsEl = document.getElementById('rows');
+  const groupsEl = document.getElementById('groups');
   const upEl = document.getElementById('upCount');
   const downEl = document.getElementById('downCount');
   const totalEl = document.getElementById('totalCount');
@@ -268,6 +202,12 @@
     return hrs + 'h ' + (mins % 60) + 'm';
   }
 
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
   async function load() {
     try {
       const res = await fetch(STATE_URL + '?t=' + Date.now(), { cache: 'no-store' });
@@ -275,25 +215,48 @@
       const data = await res.json();
       render(data);
     } catch (err) {
-      rowsEl.innerHTML = '<div class="empty">Couldn\'t load status right now (' + err.message + '). Retrying shortly…</div>';
+      groupsEl.innerHTML = '<div class="empty">Couldn\'t load status right now (' + err.message + '). Retrying shortly…</div>';
     }
   }
 
   function render(data) {
     const sites = Object.values(data.sites || {});
-    sites.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
 
     if (sites.length === 0) {
-      rowsEl.innerHTML = '<div class="empty">No checks recorded yet. The first monitor run will populate this shortly.</div>';
+      groupsEl.innerHTML = '<div class="empty">No checks recorded yet. The first monitor run will populate this shortly.</div>';
       upEl.textContent = '0'; downEl.textContent = '0'; totalEl.textContent = '0';
-    } else {
-      const upSites = sites.filter(s => s.status === 'up');
-      const downSites = sites.filter(s => s.status === 'down');
-      upEl.textContent = upSites.length;
-      downEl.textContent = downSites.length;
-      totalEl.textContent = sites.length;
+      lastUpdatedEl.textContent = 'no data yet';
+      return;
+    }
 
-      rowsEl.innerHTML = sites.map(s => {
+    const upSites = sites.filter(s => s.status === 'up');
+    const downSites = sites.filter(s => s.status === 'down');
+    upEl.textContent = upSites.length;
+    downEl.textContent = downSites.length;
+    totalEl.textContent = sites.length;
+
+    // Group by property, in the order groups first appear (roughly
+    // matches config.json order since state.json preserves insertion).
+    const byGroup = new Map();
+    for (const s of sites) {
+      const g = s.group || 'Ungrouped';
+      if (!byGroup.has(g)) byGroup.set(g, []);
+      byGroup.get(g).push(s);
+    }
+
+    let html = '';
+    for (const [groupName, branches] of byGroup.entries()) {
+      branches.sort((a, b) => (a.name || '').localeCompare(b.name || '', undefined, { numeric: true }));
+      const downInGroup = branches.filter(b => b.status === 'down').length;
+      const countLabel = downInGroup > 0
+        ? (branches.length - downInGroup) + ' / ' + branches.length + ' online'
+        : branches.length + ' / ' + branches.length + ' online';
+
+      html += '<div class="group">';
+      html += '<div class="group-header"><span class="group-name">' + escapeHtml(groupName) + '</span>' +
+              '<span class="group-count mono' + (downInGroup > 0 ? ' has-down' : '') + '">' + countLabel + '</span></div>';
+
+      html += branches.map(s => {
         const cls = s.status === 'up' ? 'up' : (s.status === 'down' ? 'down' : 'unknown');
         const label = s.status === 'up' ? 'Online' : (s.status === 'down' ? 'Down' : 'Unknown');
         const metaLine = s.status === 'down'
@@ -309,15 +272,12 @@
           '</div>'
         );
       }).join('');
+
+      html += '</div>';
     }
 
+    groupsEl.innerHTML = html;
     lastUpdatedEl.textContent = data.generated_at ? ('updated ' + timeAgo(data.generated_at)) : 'no data yet';
-  }
-
-  function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, c => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-    }[c]));
   }
 
   document.getElementById('refreshBtn').addEventListener('click', load);
