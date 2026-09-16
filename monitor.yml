@@ -1,0 +1,46 @@
+name: Branch Monitor
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # every 5 minutes, UTC. GitHub may delay this
+                            # a few minutes during busy periods - that's normal.
+  workflow_dispatch: {}     # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write            # needed so the workflow can commit state.json back
+
+concurrency:
+  group: branch-monitor
+  cancel-in-progress: false  # never cancel a run mid-way, just queue the next one
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run monitor
+        env:
+          GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+          GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
+          GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
+          # If you use the SMTP fallback instead of Graph, also add:
+          # SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        run: python scripts/monitor.py
+
+      - name: Commit updated state.json
+        run: |
+          git config user.name "branch-monitor-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json
+          git diff --staged --quiet || git commit -m "Update monitor state [skip ci]"
+          git push

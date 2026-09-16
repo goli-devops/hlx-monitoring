@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Front Desk Status</title>
+<meta name="color-scheme" content="dark" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B1320;
+    --panel: #10192A;
+    --line: #1E2A3E;
+    --text: #EAEFF5;
+    --muted: #7C8AA0;
+    --up: #35C97C;
+    --up-dim: #17301F;
+    --down: #FF5C5C;
+    --down-dim: #331419;
+    --amber: #E8A33D;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .live {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--up);
+    box-shadow: 0 0 0 0 rgba(53, 201, 124, 0.6);
+    animation: pulse 2.4s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(53, 201, 124, 0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(53, 201, 124, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(53, 201, 124, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot { animation: none; }
+  }
+
+  .summary {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    min-width: 120px;
+  }
+
+  .stat .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .stat .label {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .stat.up .num { color: var(--up); }
+  .stat.down .num { color: var(--down); }
+
+  .rows {
+    border-top: 1px solid var(--line);
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 4px 1fr auto auto;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar {
+    align-self: stretch;
+    border-radius: 2px;
+    background: var(--up);
+  }
+  .row.down .bar { background: var(--down); }
+  .row.unknown .bar { background: var(--amber); }
+
+  .name {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .url {
+    display: block;
+    color: var(--muted);
+    font-size: 12.5px;
+    margin-top: 3px;
+    word-break: break-all;
+  }
+
+  .status {
+    text-align: right;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .row.up .status { color: var(--up); }
+  .row.down .status { color: var(--down); }
+  .row.unknown .status { color: var(--amber); }
+
+  .meta {
+    text-align: right;
+    color: var(--muted);
+    font-size: 12px;
+    white-space: nowrap;
+    min-width: 130px;
+  }
+
+  footer {
+    margin-top: 32px;
+    color: var(--muted);
+    font-size: 12.5px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  button {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 12.5px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover { border-color: var(--muted); }
+  button:focus-visible, a:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  .empty {
+    color: var(--muted);
+    padding: 40px 4px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    .row { grid-template-columns: 4px 1fr; }
+    .status, .meta { grid-column: 2; text-align: left; margin-top: 2px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Front Desk Status</h1>
+      <p class="subtitle">Branch login-page availability, refreshed automatically</p>
+    </div>
+    <div class="live"><span class="dot"></span><span id="lastUpdated">loading…</span></div>
+  </header>
+
+  <div class="summary">
+    <div class="stat up"><div class="num" id="upCount">–</div><div class="label">online</div></div>
+    <div class="stat down"><div class="num" id="downCount">–</div><div class="label">down</div></div>
+    <div class="stat"><div class="num mono" id="totalCount">–</div><div class="label">branches monitored</div></div>
+  </div>
+
+  <div class="rows" id="rows">
+    <div class="empty">Loading branch status…</div>
+  </div>
+
+  <footer>
+    <span>Checked every 5 minutes by a GitHub Actions workflow.</span>
+    <button id="refreshBtn">Refresh now</button>
+  </footer>
+</div>
+
+<script>
+  // ---- Configure this ----
+  // Point this at your repo's raw state.json. Replace USER/REPO/BRANCH.
+  const STATE_URL = "https://raw.githubusercontent.com/USER/REPO/BRANCH/state.json";
+  const REFRESH_MS = 45000;
+
+  const rowsEl = document.getElementById('rows');
+  const upEl = document.getElementById('upCount');
+  const downEl = document.getElementById('downCount');
+  const totalEl = document.getElementById('totalCount');
+  const lastUpdatedEl = document.getElementById('lastUpdated');
+
+  function timeAgo(iso) {
+    if (!iso) return 'never';
+    const diffMs = Date.now() - new Date(iso).getTime();
+    const mins = Math.floor(diffMs / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return mins + 'm ago';
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return hrs + 'h ' + (mins % 60) + 'm ago';
+    return Math.floor(hrs / 24) + 'd ago';
+  }
+
+  function duration(iso) {
+    if (!iso) return '';
+    const diffMs = Date.now() - new Date(iso).getTime();
+    const mins = Math.floor(diffMs / 60000);
+    if (mins < 60) return mins + 'm';
+    const hrs = Math.floor(mins / 60);
+    return hrs + 'h ' + (mins % 60) + 'm';
+  }
+
+  async function load() {
+    try {
+      const res = await fetch(STATE_URL + '?t=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      render(data);
+    } catch (err) {
+      rowsEl.innerHTML = '<div class="empty">Couldn\'t load status right now (' + err.message + '). Retrying shortly…</div>';
+    }
+  }
+
+  function render(data) {
+    const sites = Object.values(data.sites || {});
+    sites.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+    if (sites.length === 0) {
+      rowsEl.innerHTML = '<div class="empty">No checks recorded yet. The first monitor run will populate this shortly.</div>';
+      upEl.textContent = '0'; downEl.textContent = '0'; totalEl.textContent = '0';
+    } else {
+      const upSites = sites.filter(s => s.status === 'up');
+      const downSites = sites.filter(s => s.status === 'down');
+      upEl.textContent = upSites.length;
+      downEl.textContent = downSites.length;
+      totalEl.textContent = sites.length;
+
+      rowsEl.innerHTML = sites.map(s => {
+        const cls = s.status === 'up' ? 'up' : (s.status === 'down' ? 'down' : 'unknown');
+        const label = s.status === 'up' ? 'Online' : (s.status === 'down' ? 'Down' : 'Unknown');
+        const metaLine = s.status === 'down'
+          ? 'down ' + duration(s.down_since)
+          : 'checked ' + timeAgo(s.last_checked);
+        return (
+          '<div class="row ' + cls + '">' +
+            '<div class="bar"></div>' +
+            '<div><div class="name">' + escapeHtml(s.name || '') + '</div>' +
+              '<span class="url mono">' + escapeHtml(s.url || '') + '</span></div>' +
+            '<div class="status">' + label + '</div>' +
+            '<div class="meta mono">' + metaLine + '</div>' +
+          '</div>'
+        );
+      }).join('');
+    }
+
+    lastUpdatedEl.textContent = data.generated_at ? ('updated ' + timeAgo(data.generated_at)) : 'no data yet';
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
+  document.getElementById('refreshBtn').addEventListener('click', load);
+  load();
+  setInterval(load, REFRESH_MS);
+</script>
+</body>
+</html>

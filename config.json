@@ -1,0 +1,39 @@
+{
+  "urls": [
+    { "name": "Branch 83932", "url": "https://83932.staygrid.com/frontdesk/login" },
+    { "name": "Branch 83775", "url": "https://83775.staygrid.com/frontdesk/login" },
+    { "name": "Branch 83936", "url": "https://83936.staygrid.com/frontdesk/login" },
+    { "name": "Branch 84612", "url": "https://84612.staygrid.com/frontdesk/login" },
+    { "name": "Branch 80992", "url": "https://80992.staygrid.com/frontdesk/login" },
+    { "name": "Branch 80504", "url": "https://80504.staygrid.com/frontdesk/login" },
+    { "name": "Branch 80505", "url": "https://80505.staygrid.com/frontdesk/login" },
+    { "name": "Branch 84613", "url": "https://84613.staygrid.com/frontdesk/login" },
+    { "name": "Branch 80715", "url": "https://80715.staygrid.com/frontdesk/login" },
+    { "name": "Branch 80506", "url": "https://80506.staygrid.com/frontdesk/login" }
+  ],
+
+  "timeout_seconds": 10,
+  "retries": 2,
+  "retry_delay_seconds": 15,
+  "alert_repeat_minutes": 60,
+
+  "expect_text": null,
+
+  "email": {
+    "method": "graph",
+    "sender": "ict.devops@globalofficium.onmicrosoft.com",
+    "recipients": ["ict.devops@globalofficium.onmicrosoft.com"],
+
+    "graph": {
+      "tenant_id": "",
+      "client_id": "",
+      "client_secret": ""
+    },
+
+    "smtp": {
+      "server": "smtp.office365.com",
+      "port": 587,
+      "username": "ict.devops@globalofficium.onmicrosoft.com"
+    }
+  }
+}
