@@ -242,8 +242,8 @@ def main():
 
     if args.test_email:
         log.info("Sending test email...")
-        send_alert(cfg, "[TEST] StayGrid monitor test email",
-                   f"This is a test email from the StayGrid branch monitor.\nSent at: {now_iso()}")
+        send_alert(cfg, "[TEST] HLX monitor test email",
+                   f"This is a test email from the HLX branch monitor.\nSent at: {now_iso()}")
         return
 
     state = load_json(STATE_PATH, {"sites": {}, "generated_at": None})
@@ -282,8 +282,9 @@ def main():
                         pass
                 send_alert(
                     cfg,
-                    f"[RECOVERED] {name} is back up",
-                    f"{name} ({group})\n{url}\n\nStatus: back online ({detail})\n"
+                    f"HLX RECOVERED - {name}",
+                    f"HLX RECOVERED\nBranch: {name} ({group})\nURL: {url}\n\n"
+                    f"Status: back online ({detail})\n"
                     f"Was down for: {duration}\nRecovered at: {now_iso()}",
                 )
             sites_state[url] = {"status": "up", "detail": detail, "down_since": None,
@@ -297,8 +298,9 @@ def main():
                                      "url": url, "last_checked": now_iso()}
                 send_alert(
                     cfg,
-                    f"[DOWN] {name} is unreachable",
-                    f"{name} ({group})\n{url}\n\nError: {detail}\nDetected at: {now_iso()}",
+                    f"HLX DOWN - {name}",
+                    f"HLX DOWN\nBranch: {name} ({group})\nURL: {url}\n\n"
+                    f"Error: {detail}\nDetected at: {now_iso()}",
                 )
             else:
                 last_alert = prev.get("last_alert")
@@ -320,8 +322,9 @@ def main():
                     prev["last_alert"] = now_iso()
                     send_alert(
                         cfg,
-                        f"[STILL DOWN] {name} is unreachable",
-                        f"{name} ({group})\n{url}\n\nError: {detail}\n"
+                        f"HLX STILL DOWN - {name}",
+                        f"HLX STILL DOWN\nBranch: {name} ({group})\nURL: {url}\n\n"
+                        f"Error: {detail}\n"
                         f"Down since: {prev.get('down_since')}\nChecked at: {now_iso()}",
                     )
                 sites_state[url] = prev
