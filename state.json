@@ -1,4 +1,95 @@
 {
-  "generated_at": null,
-  "sites": {}
+  "generated_at": "2026-09-16T03:06:19.640730+00:00",
+  "sites": {
+    "https://83932.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 83932",
+      "url": "https://83932.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:00.906748+00:00"
+    },
+    "https://83775.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 83775",
+      "url": "https://83775.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:02.919054+00:00"
+    },
+    "https://83936.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 83936",
+      "url": "https://83936.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:05.114762+00:00"
+    },
+    "https://84612.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 84612",
+      "url": "https://84612.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:07.052597+00:00"
+    },
+    "https://80992.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 80992",
+      "url": "https://80992.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:09.364443+00:00"
+    },
+    "https://80504.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 80504",
+      "url": "https://80504.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:11.264106+00:00"
+    },
+    "https://80505.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 80505",
+      "url": "https://80505.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:13.579041+00:00"
+    },
+    "https://84613.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 84613",
+      "url": "https://84613.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:15.523370+00:00"
+    },
+    "https://80715.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 80715",
+      "url": "https://80715.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:17.642900+00:00"
+    },
+    "https://80506.staygrid.com/frontdesk/login": {
+      "status": "up",
+      "detail": "HTTP 200",
+      "down_since": null,
+      "last_alert": null,
+      "name": "Branch 80506",
+      "url": "https://80506.staygrid.com/frontdesk/login",
+      "last_checked": "2026-09-16T03:06:19.640711+00:00"
+    }
+  }
 }
