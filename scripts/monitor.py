@@ -2,14 +2,19 @@
 """
 StayGrid Branch Monitor (GitHub Actions edition)
 --------------------------------------------------
-Checks each branch's front-desk login page and emails an alert when a
-branch goes down, sends periodic reminders while it stays down, and
-emails again when it recovers.
+Checks each branch's front-desk login page (organized by property/group -
+SOGO, EUROTEL, ASTROTEL, etc.) and emails an alert when a branch goes
+down, sends periodic reminders while it stays down, and emails again
+when it recovers.
 
 Meant to be run by the GitHub Actions workflow in
 .github/workflows/monitor.yml on a schedule. State is written to
 state.json at the repo root, which that workflow commits back to the
 repo after each run - that committed file is what the dashboard reads.
+
+Branches are checked in parallel (default: 15 at a time) so a full
+pass across many properties/branches stays well within a 5-minute
+schedule window.
 
 Graph API credentials are read from environment variables (set as
 GitHub Actions secrets) rather than from config.json, so nothing
@@ -31,6 +36,7 @@ import os
 import smtplib
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -69,6 +75,30 @@ def now_iso():
     return datetime.now(timezone.utc).isoformat()
 
 
+def flatten_branches(cfg):
+    """Turn the grouped config into a flat list of
+    {group, code, name, url} dicts, deduplicated by URL (in case the
+    same URL is accidentally listed twice, e.g. under two groups)."""
+    seen = set()
+    flat = []
+    for g in cfg.get("groups", []):
+        group_name = g["group"]
+        for b in g.get("branches", []):
+            url = b["url"]
+            if url in seen:
+                log.warning("Duplicate URL skipped (already listed elsewhere): %s", url)
+                continue
+            seen.add(url)
+            code = b.get("code", url)
+            flat.append({
+                "group": group_name,
+                "code": code,
+                "name": f"{group_name} {code}",
+                "url": url,
+            })
+    return flat
+
+
 # --------------------------------------------------------------------------
 # Site check
 # --------------------------------------------------------------------------
@@ -89,11 +119,28 @@ def check_url(url, timeout, retries, retry_delay, expect_text=None):
             last_error = f"{type(e).__name__}: {e}"
 
         if attempt < retries + 1:
-            log.info("  attempt %s/%s failed for %s (%s) - retrying in %ss",
-                      attempt, retries + 1, url, last_error, retry_delay)
             time.sleep(retry_delay)
 
     return False, last_error or "unknown error"
+
+
+def check_all(branches, timeout, retries, retry_delay, expect_text, max_workers=15):
+    """Check every branch concurrently. Returns a dict keyed by url:
+    {branch, is_up, detail}."""
+    results = {}
+
+    def worker(branch):
+        is_up, detail = check_url(branch["url"], timeout, retries, retry_delay, expect_text)
+        return branch, is_up, detail
+
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        futures = [pool.submit(worker, b) for b in branches]
+        for fut in as_completed(futures):
+            branch, is_up, detail = fut.result()
+            log.info("%s -> %s (%s)", branch["name"], "UP" if is_up else "DOWN", detail)
+            results[branch["url"]] = {"branch": branch, "is_up": is_up, "detail": detail}
+
+    return results
 
 
 # --------------------------------------------------------------------------
@@ -207,11 +254,18 @@ def main():
     retry_delay = cfg.get("retry_delay_seconds", 15)
     repeat_minutes = cfg.get("alert_repeat_minutes", 60)
     expect_text = cfg.get("expect_text")  # optional content check, e.g. "password"
+    max_workers = cfg.get("max_parallel_checks", 15)
 
-    for site in cfg["urls"]:
-        name, url = site["name"], site["url"]
-        log.info("Checking %s (%s)", name, url)
-        is_up, detail = check_url(url, timeout, retries, retry_delay, expect_text)
+    branches = flatten_branches(cfg)
+    log.info("Checking %d branches across %d groups (up to %d in parallel)...",
+              len(branches), len(cfg.get("groups", [])), max_workers)
+
+    results = check_all(branches, timeout, retries, retry_delay, expect_text, max_workers)
+
+    for url, result in results.items():
+        branch = result["branch"]
+        name, group = branch["name"], branch["group"]
+        is_up, detail = result["is_up"], result["detail"]
 
         prev = sites_state.get(url, {"status": "up", "down_since": None, "last_alert": None})
         prev_status = prev.get("status", "up")
@@ -229,22 +283,22 @@ def main():
                 send_alert(
                     cfg,
                     f"[RECOVERED] {name} is back up",
-                    f"{name}\n{url}\n\nStatus: back online ({detail})\n"
+                    f"{name} ({group})\n{url}\n\nStatus: back online ({detail})\n"
                     f"Was down for: {duration}\nRecovered at: {now_iso()}",
                 )
             sites_state[url] = {"status": "up", "detail": detail, "down_since": None,
-                                 "last_alert": None, "name": name, "url": url,
-                                 "last_checked": now_iso()}
+                                 "last_alert": None, "name": name, "group": group,
+                                 "url": url, "last_checked": now_iso()}
         else:
             if prev_status == "up":
                 log.warning("%s is DOWN: %s", name, detail)
                 sites_state[url] = {"status": "down", "detail": detail, "down_since": now_iso(),
-                                     "last_alert": now_iso(), "name": name, "url": url,
-                                     "last_checked": now_iso()}
+                                     "last_alert": now_iso(), "name": name, "group": group,
+                                     "url": url, "last_checked": now_iso()}
                 send_alert(
                     cfg,
                     f"[DOWN] {name} is unreachable",
-                    f"{name}\n{url}\n\nError: {detail}\nDetected at: {now_iso()}",
+                    f"{name} ({group})\n{url}\n\nError: {detail}\nDetected at: {now_iso()}",
                 )
             else:
                 last_alert = prev.get("last_alert")
@@ -260,13 +314,14 @@ def main():
                 prev["last_checked"] = now_iso()
                 prev["url"] = url
                 prev["name"] = name
+                prev["group"] = group
                 if should_repeat:
                     log.warning("%s still DOWN: %s (repeat reminder)", name, detail)
                     prev["last_alert"] = now_iso()
                     send_alert(
                         cfg,
                         f"[STILL DOWN] {name} is unreachable",
-                        f"{name}\n{url}\n\nError: {detail}\n"
+                        f"{name} ({group})\n{url}\n\nError: {detail}\n"
                         f"Down since: {prev.get('down_since')}\nChecked at: {now_iso()}",
                     )
                 sites_state[url] = prev
