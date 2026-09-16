@@ -4,7 +4,13 @@ on:
   schedule:
     - cron: '*/5 * * * *'   # every 5 minutes, UTC. GitHub may delay this
                             # a few minutes during busy periods - that's normal.
-  workflow_dispatch: {}     # lets you trigger a run manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: 'Send a test email only (skip branch checks)'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write            # needed so the workflow can commit state.json back
@@ -35,9 +41,15 @@ jobs:
           GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
           # If you use the SMTP fallback instead of Graph, also add:
           # SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-        run: python scripts/monitor.py
+        run: |
+          if [ "${{ inputs.test_email }}" = "true" ]; then
+            python scripts/monitor.py --test-email
+          else
+            python scripts/monitor.py
+          fi
 
       - name: Commit updated state.json
+        if: ${{ inputs.test_email != true }}
         run: |
           git config user.name "branch-monitor-bot"
           git config user.email "actions@users.noreply.github.com"
