@@ -37,7 +37,7 @@ import smtplib
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.mime.text import MIMEText
 from pathlib import Path
 
@@ -73,6 +73,36 @@ def save_json(path, data):
 
 def now_iso():
     return datetime.now(timezone.utc).isoformat()
+
+
+MANILA = timezone(timedelta(hours=8))
+
+
+def human_time(iso, tz=MANILA):
+    """'2026-09-22T20:38:24...' -> 'September 22, 2026 at 4:38am' (local time)."""
+    if not iso:
+        return "unknown"
+    try:
+        dt = datetime.fromisoformat(iso).astimezone(tz)
+    except Exception:
+        return iso
+    hour = dt.strftime("%I").lstrip("0") or "12"
+    return f'{dt.strftime("%B %d, %Y")} at {hour}:{dt.strftime("%M")}{dt.strftime("%p").lower()}'
+
+
+def human_duration(iso_start, iso_end=None):
+    """Elapsed time between two ISO timestamps as e.g. '2h 15m' or '37m'."""
+    if not iso_start:
+        return "unknown"
+    try:
+        start = datetime.fromisoformat(iso_start)
+        end = datetime.fromisoformat(iso_end) if iso_end else datetime.now(timezone.utc)
+        seconds = int((end - start).total_seconds())
+    except Exception:
+        return "unknown"
+    hours, remainder = divmod(max(seconds, 0), 3600)
+    minutes = remainder // 60
+    return f"{hours}h {minutes}m" if hours else f"{minutes}m"
 
 
 def flatten_branches(cfg):
@@ -273,19 +303,15 @@ def main():
         if is_up:
             if prev_status == "down":
                 down_since = prev.get("down_since")
-                duration = "unknown"
-                if down_since:
-                    try:
-                        delta = datetime.now(timezone.utc) - datetime.fromisoformat(down_since)
-                        duration = str(delta).split(".")[0]
-                    except Exception:
-                        pass
+                duration = human_duration(down_since)
                 send_alert(
                     cfg,
                     f"HLX RECOVERED - {name}",
                     f"HLX RECOVERED\nBranch: {name} ({group})\nURL: {url}\n\n"
                     f"Status: back online ({detail})\n"
-                    f"Was down for: {duration}\nRecovered at: {now_iso()}",
+                    f"Was down for: {duration}\n"
+                    f"Start down: {human_time(down_since)}\n"
+                    f"Recovered at: {human_time(now_iso())}",
                 )
             sites_state[url] = {"status": "up", "detail": detail, "down_since": None,
                                  "last_alert": None, "name": name, "group": group,
@@ -300,7 +326,7 @@ def main():
                     cfg,
                     f"HLX DOWN - {name}",
                     f"HLX DOWN\nBranch: {name} ({group})\nURL: {url}\n\n"
-                    f"Error: {detail}\nDetected at: {now_iso()}",
+                    f"Error: {detail}\nStart down: {human_time(now_iso())}",
                 )
             else:
                 last_alert = prev.get("last_alert")
@@ -320,12 +346,15 @@ def main():
                 if should_repeat:
                     log.warning("%s still DOWN: %s (repeat reminder)", name, detail)
                     prev["last_alert"] = now_iso()
+                    down_since = prev.get("down_since")
                     send_alert(
                         cfg,
                         f"HLX STILL DOWN - {name}",
                         f"HLX STILL DOWN\nBranch: {name} ({group})\nURL: {url}\n\n"
                         f"Error: {detail}\n"
-                        f"Down since: {prev.get('down_since')}\nChecked at: {now_iso()}",
+                        f"Start down: {human_time(down_since)}\n"
+                        f"Down for: {human_duration(down_since)}\n"
+                        f"Checked at: {human_time(now_iso())}",
                     )
                 sites_state[url] = prev
 
