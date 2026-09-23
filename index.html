@@ -17,6 +17,7 @@
     --muted: #7C8AA0;
     --up: #35C97C;
     --down: #FF5C5C;
+    --down-dim: #241417;
     --amber: #E8A33D;
   }
 
@@ -77,6 +78,38 @@
   .stat .label { color: var(--muted); font-size: 13px; margin-top: 6px; }
   .stat.up .num { color: var(--up); }
   .stat.down .num { color: var(--down); }
+
+  .down-summary {
+    background: var(--down-dim, #2A1216);
+    border: 1px solid var(--down);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-bottom: 32px;
+  }
+
+  .down-summary-title {
+    color: var(--down);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .down-summary-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .down-chip {
+    background: rgba(255, 92, 92, 0.12);
+    color: var(--text);
+    border: 1px solid rgba(255, 92, 92, 0.35);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+  .down-chip .mono { color: var(--down); }
 
   .group { margin-bottom: 36px; }
 
@@ -245,6 +278,19 @@
     }
 
     let html = '';
+
+    if (downSites.length > 0) {
+      const sortedDown = [...downSites].sort((a, b) =>
+        (a.name || '').localeCompare(b.name || '', undefined, { numeric: true }));
+      html += '<div class="down-summary">';
+      html += '<div class="down-summary-title">' +
+              '\u26A0 ' + downSites.length + ' branch' + (downSites.length === 1 ? '' : 'es') + ' currently down</div>';
+      html += '<div class="down-summary-list">' + sortedDown.map(s =>
+        '<span class="down-chip">' + escapeHtml(s.name || '') + ' <span class="mono">(' + duration(s.down_since) + ')</span></span>'
+      ).join('') + '</div>';
+      html += '</div>';
+    }
+
     for (const [groupName, branches] of byGroup.entries()) {
       branches.sort((a, b) => (a.name || '').localeCompare(b.name || '', undefined, { numeric: true }));
       const downInGroup = branches.filter(b => b.status === 'down').length;
