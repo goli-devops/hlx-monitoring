@@ -1,85 +1,85 @@
 {
-  "generated_at": "2026-11-19T10:25:34.204984+00:00",
+  "generated_at": "2026-11-19T10:29:50.245058+00:00",
   "sites": {
     "https://83932.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83932.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:30.518497+00:00",
       "last_alert": "2026-11-19T09:54:30.518512+00:00",
       "name": "SOGO S01",
       "group": "SOGO",
       "url": "https://83932.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204796+00:00"
+      "last_checked": "2026-11-19T10:29:50.244833+00:00"
     },
     "https://83775.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83775.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:23.269684+00:00",
       "last_alert": "2026-11-19T09:54:23.269697+00:00",
       "name": "SOGO S02",
       "group": "SOGO",
       "url": "https://83775.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204786+00:00"
+      "last_checked": "2026-11-19T10:29:50.244863+00:00"
     },
     "https://83936.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83936.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:24.536411+00:00",
       "last_alert": "2026-11-19T09:54:24.536424+00:00",
       "name": "SOGO S03",
       "group": "SOGO",
       "url": "https://83936.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204722+00:00"
+      "last_checked": "2026-11-19T10:29:50.244843+00:00"
     },
     "https://84612.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='84612.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:23.906009+00:00",
       "last_alert": "2026-11-19T09:54:23.906028+00:00",
       "name": "SOGO S04",
       "group": "SOGO",
       "url": "https://84612.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204756+00:00"
+      "last_checked": "2026-11-19T10:29:50.244774+00:00"
     },
     "https://80992.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80992.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:25.254606+00:00",
       "last_alert": "2026-11-19T09:54:25.254620+00:00",
       "name": "SOGO S05",
       "group": "SOGO",
       "url": "https://80992.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204783+00:00"
+      "last_checked": "2026-11-19T10:29:50.244838+00:00"
     },
     "https://80504.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80504.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:26.633037+00:00",
       "last_alert": "2026-11-19T09:54:26.633051+00:00",
       "name": "SOGO S06",
       "group": "SOGO",
       "url": "https://80504.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204771+00:00"
+      "last_checked": "2026-11-19T10:29:50.244817+00:00"
     },
     "https://80505.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80505.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:28.318421+00:00",
       "last_alert": "2026-11-19T09:54:28.318439+00:00",
       "name": "SOGO S07",
       "group": "SOGO",
       "url": "https://80505.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204793+00:00"
+      "last_checked": "2026-11-19T10:29:50.244847+00:00"
     },
     "https://84613.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='84613.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:28.840522+00:00",
       "last_alert": "2026-11-19T09:54:28.840543+00:00",
       "name": "SOGO S08",
       "group": "SOGO",
       "url": "https://84613.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204779+00:00"
+      "last_checked": "2026-11-19T10:29:50.244850+00:00"
     },
     "https://80715.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -89,227 +89,227 @@
       "name": "SOGO S34",
       "group": "SOGO",
       "url": "https://80715.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204856+00:00"
+      "last_checked": "2026-11-19T10:29:50.244929+00:00"
     },
     "https://80506.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80506.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:27.788977+00:00",
       "last_alert": "2026-11-19T09:54:27.789000+00:00",
       "name": "SOGO S10",
       "group": "SOGO",
       "url": "https://80506.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204743+00:00"
+      "last_checked": "2026-11-19T10:29:50.244866+00:00"
     },
     "https://80717.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80717.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:22.553366+00:00",
       "last_alert": "2026-11-19T09:54:22.553389+00:00",
       "name": "SOGO S09",
       "group": "SOGO",
       "url": "https://80717.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204759+00:00"
+      "last_checked": "2026-11-19T10:29:50.244805+00:00"
     },
     "https://83937.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83937.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:29.368032+00:00",
       "last_alert": "2026-11-19T09:54:29.368047+00:00",
       "name": "SOGO S11",
       "group": "SOGO",
       "url": "https://83937.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204738+00:00"
+      "last_checked": "2026-11-19T10:29:50.244813+00:00"
     },
     "https://83776.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83776.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:27.156438+00:00",
       "last_alert": "2026-11-19T09:54:27.156454+00:00",
       "name": "SOGO S12",
       "group": "SOGO",
       "url": "https://83776.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204775+00:00"
+      "last_checked": "2026-11-19T10:29:50.244800+00:00"
     },
     "https://81073.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='81073.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:25.973532+00:00",
       "last_alert": "2026-11-19T09:54:25.973549+00:00",
       "name": "SOGO S15",
       "group": "SOGO",
       "url": "https://81073.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204751+00:00"
+      "last_checked": "2026-11-19T10:29:50.244790+00:00"
     },
     "https://83938.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83938.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:31.254858+00:00",
       "last_alert": "2026-11-19T09:54:31.254874+00:00",
       "name": "SOGO S14",
       "group": "SOGO",
       "url": "https://83938.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204790+00:00"
+      "last_checked": "2026-11-19T10:29:50.244859+00:00"
     },
     "https://83777.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83777.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:29.990294+00:00",
       "last_alert": "2026-11-19T09:54:29.990309+00:00",
       "name": "SOGO S13",
       "group": "SOGO",
       "url": "https://83777.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204747+00:00"
+      "last_checked": "2026-11-19T10:29:50.244810+00:00"
     },
     "https://80712.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80712.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:31.778051+00:00",
       "last_alert": "2026-11-19T09:54:31.778066+00:00",
       "name": "SOGO S16",
       "group": "SOGO",
       "url": "https://80712.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204826+00:00"
+      "last_checked": "2026-11-19T10:29:50.244876+00:00"
     },
     "https://80722.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80722.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:34.679697+00:00",
       "last_alert": "2026-11-19T09:54:34.679710+00:00",
       "name": "SOGO S19",
       "group": "SOGO",
       "url": "https://80722.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204811+00:00"
+      "last_checked": "2026-11-19T10:29:50.244893+00:00"
     },
     "https://79264.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='79264.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:35.310300+00:00",
       "last_alert": "2026-11-19T09:54:35.310322+00:00",
       "name": "SOGO S18",
       "group": "SOGO",
       "url": "https://79264.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204823+00:00"
+      "last_checked": "2026-11-19T10:29:50.244870+00:00"
     },
     "https://80302.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80302.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:35.929365+00:00",
       "last_alert": "2026-11-19T09:54:35.929381+00:00",
       "name": "SOGO S17",
       "group": "SOGO",
       "url": "https://80302.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204805+00:00"
+      "last_checked": "2026-11-19T10:29:50.244880+00:00"
     },
     "https://80507.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80507.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:34.119890+00:00",
       "last_alert": "2026-11-19T09:54:34.119909+00:00",
       "name": "SOGO S23",
       "group": "SOGO",
       "url": "https://80507.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204814+00:00"
+      "last_checked": "2026-11-19T10:29:50.244886+00:00"
     },
     "https://83940.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83940.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:33.366512+00:00",
       "last_alert": "2026-11-19T09:54:33.366532+00:00",
       "name": "SOGO S22",
       "group": "SOGO",
       "url": "https://83940.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204802+00:00"
+      "last_checked": "2026-11-19T10:29:50.244890+00:00"
     },
     "https://80316.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80316.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:32.317106+00:00",
       "last_alert": "2026-11-19T09:54:32.317122+00:00",
       "name": "SOGO S20",
       "group": "SOGO",
       "url": "https://80316.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204808+00:00"
+      "last_checked": "2026-11-19T10:29:50.244899+00:00"
     },
     "https://80994.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80994.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:38.246599+00:00",
       "last_alert": "2026-11-19T09:54:38.246618+00:00",
       "name": "SOGO S26",
       "group": "SOGO",
       "url": "https://80994.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204817+00:00"
+      "last_checked": "2026-11-19T10:29:50.244913+00:00"
     },
     "https://80713.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80713.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:36.590285+00:00",
       "last_alert": "2026-11-19T09:54:36.590300+00:00",
       "name": "SOGO S27",
       "group": "SOGO",
       "url": "https://80713.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204820+00:00"
+      "last_checked": "2026-11-19T10:29:50.244873+00:00"
     },
     "https://80509.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80509.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:39.834573+00:00",
       "last_alert": "2026-11-19T09:54:39.834596+00:00",
       "name": "SOGO S29",
       "group": "SOGO",
       "url": "https://80509.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204838+00:00"
+      "last_checked": "2026-11-19T10:29:50.244902+00:00"
     },
     "https://83941.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83941.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:39.300619+00:00",
       "last_alert": "2026-11-19T09:54:39.300637+00:00",
       "name": "SOGO S25",
       "group": "SOGO",
       "url": "https://83941.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204832+00:00"
+      "last_checked": "2026-11-19T10:29:50.244905+00:00"
     },
     "https://83939.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='83939.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:37.627327+00:00",
       "last_alert": "2026-11-19T09:54:37.627340+00:00",
       "name": "SOGO S21",
       "group": "SOGO",
       "url": "https://83939.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204799+00:00"
+      "last_checked": "2026-11-19T10:29:50.244896+00:00"
     },
     "https://80723.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80723.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:32.836060+00:00",
       "last_alert": "2026-11-19T09:54:32.836074+00:00",
       "name": "SOGO S24",
       "group": "SOGO",
       "url": "https://80723.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204835+00:00"
+      "last_checked": "2026-11-19T10:29:50.244883+00:00"
     },
     "https://80714.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80714.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:38.782577+00:00",
       "last_alert": "2026-11-19T09:54:38.782590+00:00",
       "name": "SOGO S30",
       "group": "SOGO",
       "url": "https://80714.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204829+00:00"
+      "last_checked": "2026-11-19T10:29:50.244911+00:00"
     },
     "https://80508.staygrid.com/frontdesk/login": {
       "status": "down",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='80508.staygrid.com', port=443): Read timed out. (read timeout=10)",
+      "detail": "HTTP 503",
       "down_since": "2026-11-19T09:54:37.103645+00:00",
       "last_alert": "2026-11-19T09:54:37.103659+00:00",
       "name": "SOGO S28",
       "group": "SOGO",
       "url": "https://80508.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204841+00:00"
+      "last_checked": "2026-11-19T10:29:50.244908+00:00"
     },
     "https://83942.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -319,7 +319,7 @@
       "name": "SOGO S32",
       "group": "SOGO",
       "url": "https://83942.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204847+00:00"
+      "last_checked": "2026-11-19T10:29:50.244919+00:00"
     },
     "https://80960.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -329,7 +329,7 @@
       "name": "SOGO S31",
       "group": "SOGO",
       "url": "https://80960.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204850+00:00"
+      "last_checked": "2026-11-19T10:29:50.244917+00:00"
     },
     "https://83944.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -339,7 +339,7 @@
       "name": "SOGO S35",
       "group": "SOGO",
       "url": "https://83944.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204844+00:00"
+      "last_checked": "2026-11-19T10:29:50.244937+00:00"
     },
     "https://80413.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -349,7 +349,7 @@
       "name": "SOGO S39",
       "group": "SOGO",
       "url": "https://80413.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204877+00:00"
+      "last_checked": "2026-11-19T10:29:50.244940+00:00"
     },
     "https://83778.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -359,7 +359,7 @@
       "name": "SOGO S33",
       "group": "SOGO",
       "url": "https://83778.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204853+00:00"
+      "last_checked": "2026-11-19T10:29:50.244922+00:00"
     },
     "https://80510.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -369,7 +369,7 @@
       "name": "SOGO S36",
       "group": "SOGO",
       "url": "https://80510.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204865+00:00"
+      "last_checked": "2026-11-19T10:29:50.244926+00:00"
     },
     "https://80511.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -379,7 +379,7 @@
       "name": "SOGO S38",
       "group": "SOGO",
       "url": "https://80511.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204862+00:00"
+      "last_checked": "2026-11-19T10:29:50.244943+00:00"
     },
     "https://80716.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -389,7 +389,7 @@
       "name": "SOGO S37",
       "group": "SOGO",
       "url": "https://80716.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204859+00:00"
+      "last_checked": "2026-11-19T10:29:50.244931+00:00"
     },
     "https://80512.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -399,7 +399,7 @@
       "name": "SOGO S40",
       "group": "SOGO",
       "url": "https://80512.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204871+00:00"
+      "last_checked": "2026-11-19T10:29:50.244934+00:00"
     },
     "https://80993.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -409,7 +409,7 @@
       "name": "SOGO S41",
       "group": "SOGO",
       "url": "https://80993.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204874+00:00"
+      "last_checked": "2026-11-19T10:29:50.244949+00:00"
     },
     "https://80991.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -419,7 +419,7 @@
       "name": "SOGO S42",
       "group": "SOGO",
       "url": "https://80991.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204869+00:00"
+      "last_checked": "2026-11-19T10:29:50.244946+00:00"
     },
     "https://80315.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -429,7 +429,7 @@
       "name": "SOGO S43",
       "group": "SOGO",
       "url": "https://80315.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204879+00:00"
+      "last_checked": "2026-11-19T10:29:50.244954+00:00"
     },
     "https://80514.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -439,7 +439,7 @@
       "name": "SOGO S46",
       "group": "SOGO",
       "url": "https://80514.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204904+00:00"
+      "last_checked": "2026-11-19T10:29:50.244960+00:00"
     },
     "https://83945.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -449,7 +449,7 @@
       "name": "SOGO S44",
       "group": "SOGO",
       "url": "https://83945.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204885+00:00"
+      "last_checked": "2026-11-19T10:29:50.244951+00:00"
     },
     "https://80513.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -459,7 +459,7 @@
       "name": "SOGO S45",
       "group": "SOGO",
       "url": "https://80513.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204882+00:00"
+      "last_checked": "2026-11-19T10:29:50.244957+00:00"
     },
     "https://83946.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -469,7 +469,7 @@
       "name": "SOGO S48",
       "group": "SOGO",
       "url": "https://83946.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204890+00:00"
+      "last_checked": "2026-11-19T10:29:50.244962+00:00"
     },
     "https://80515.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -479,7 +479,7 @@
       "name": "SOGO S47",
       "group": "SOGO",
       "url": "https://80515.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204888+00:00"
+      "last_checked": "2026-11-19T10:29:50.244990+00:00"
     },
     "https://84614.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -489,7 +489,7 @@
       "name": "SOGO S51",
       "group": "SOGO",
       "url": "https://84614.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204915+00:00"
+      "last_checked": "2026-11-19T10:29:50.244995+00:00"
     },
     "https://83947.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -499,7 +499,7 @@
       "name": "SOGO S50",
       "group": "SOGO",
       "url": "https://83947.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204912+00:00"
+      "last_checked": "2026-11-19T10:29:50.244992+00:00"
     },
     "https://84008.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -509,7 +509,7 @@
       "name": "SOGO S52",
       "group": "SOGO",
       "url": "https://84008.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204896+00:00"
+      "last_checked": "2026-11-19T10:29:50.244998+00:00"
     },
     "https://80343.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -519,7 +519,7 @@
       "name": "EUROTEL E02",
       "group": "EUROTEL",
       "url": "https://80343.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204909+00:00"
+      "last_checked": "2026-11-19T10:29:50.244983+00:00"
     },
     "https://80516.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -529,7 +529,7 @@
       "name": "SOGO S49",
       "group": "SOGO",
       "url": "https://80516.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204893+00:00"
+      "last_checked": "2026-11-19T10:29:50.244987+00:00"
     },
     "https://80353.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -539,7 +539,7 @@
       "name": "EUROTEL E05",
       "group": "EUROTEL",
       "url": "https://80353.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204907+00:00"
+      "last_checked": "2026-11-19T10:29:50.245008+00:00"
     },
     "https://80340.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -549,7 +549,7 @@
       "name": "EUROTEL E07",
       "group": "EUROTEL",
       "url": "https://80340.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204899+00:00"
+      "last_checked": "2026-11-19T10:29:50.245014+00:00"
     },
     "https://80342.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -559,7 +559,7 @@
       "name": "EUROTEL E03",
       "group": "EUROTEL",
       "url": "https://80342.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204901+00:00"
+      "last_checked": "2026-11-19T10:29:50.245001+00:00"
     },
     "https://80297.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -569,7 +569,7 @@
       "name": "EUROTEL E08",
       "group": "EUROTEL",
       "url": "https://80297.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204923+00:00"
+      "last_checked": "2026-11-19T10:29:50.245011+00:00"
     },
     "https://80307.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -579,7 +579,7 @@
       "name": "EUROTEL E04",
       "group": "EUROTEL",
       "url": "https://80307.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204918+00:00"
+      "last_checked": "2026-11-19T10:29:50.245005+00:00"
     },
     "https://78868.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -589,7 +589,7 @@
       "name": "EUROTEL E10",
       "group": "EUROTEL",
       "url": "https://78868.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204921+00:00"
+      "last_checked": "2026-11-19T10:29:50.245017+00:00"
     },
     "https://90594.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -599,7 +599,7 @@
       "name": "ASTROTEL A02",
       "group": "ASTROTEL",
       "url": "https://90594.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204933+00:00"
+      "last_checked": "2026-11-19T10:29:50.245038+00:00"
     },
     "https://90595.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -609,7 +609,7 @@
       "name": "ASTROTEL A03",
       "group": "ASTROTEL",
       "url": "https://90595.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204961+00:00"
+      "last_checked": "2026-11-19T10:29:50.245041+00:00"
     },
     "https://90597.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -619,7 +619,7 @@
       "name": "ASTROTEL A05",
       "group": "ASTROTEL",
       "url": "https://90597.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204936+00:00"
+      "last_checked": "2026-11-19T10:29:50.245035+00:00"
     },
     "https://90596.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -629,7 +629,7 @@
       "name": "ASTROTEL A04",
       "group": "ASTROTEL",
       "url": "https://90596.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204974+00:00"
+      "last_checked": "2026-11-19T10:29:50.245051+00:00"
     },
     "https://90861.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -639,7 +639,7 @@
       "name": "DREAM D02",
       "group": "DREAM",
       "url": "https://90861.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204982+00:00"
+      "last_checked": "2026-11-19T10:29:50.245056+00:00"
     },
     "https://90859.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -649,7 +649,7 @@
       "name": "DREAM D01",
       "group": "DREAM",
       "url": "https://90859.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204978+00:00"
+      "last_checked": "2026-11-19T10:29:50.245048+00:00"
     },
     "https://91028.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -659,7 +659,7 @@
       "name": "ASTROTEL A09",
       "group": "ASTROTEL",
       "url": "https://91028.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204939+00:00"
+      "last_checked": "2026-11-19T10:29:50.245031+00:00"
     },
     "https://91501.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -669,7 +669,7 @@
       "name": "ASTROTEL A08",
       "group": "ASTROTEL",
       "url": "https://91501.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204967+00:00"
+      "last_checked": "2026-11-19T10:29:50.245028+00:00"
     },
     "https://90598.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -679,7 +679,7 @@
       "name": "ASTROTEL A07",
       "group": "ASTROTEL",
       "url": "https://90598.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204971+00:00"
+      "last_checked": "2026-11-19T10:29:50.245054+00:00"
     },
     "https://90863.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -689,7 +689,7 @@
       "name": "DREAM D04",
       "group": "DREAM",
       "url": "https://90863.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204942+00:00"
+      "last_checked": "2026-11-19T10:29:50.245045+00:00"
     },
     "https://80303.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -699,7 +699,7 @@
       "name": "APO VIEW AVH",
       "group": "APO VIEW",
       "url": "https://80303.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204927+00:00"
+      "last_checked": "2026-11-19T10:29:50.245021+00:00"
     },
     "https://90593.staygrid.com/frontdesk/login": {
       "status": "down",
@@ -709,7 +709,7 @@
       "name": "ASTROTEL A01",
       "group": "ASTROTEL",
       "url": "https://90593.staygrid.com/frontdesk/login",
-      "last_checked": "2026-11-19T10:25:34.204930+00:00"
+      "last_checked": "2026-11-19T10:29:50.245025+00:00"
     }
   }
 }
